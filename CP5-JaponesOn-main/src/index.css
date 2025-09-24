@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #E60026;   /* Vermelho (bandeira do Japão) */
+  --color-secondary: #1C1C1C; /* Preto elegante */
+  --color-support: #F5E6B3;   /* Dourado claro */
+  --color-support-alt: #FFD700; /* Dourado vibrante */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f5e6b3);
+  color: var(--color-secondary);
+}
+
+header, footer {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 1rem;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-support-alt);
+}
