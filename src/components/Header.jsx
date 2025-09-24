@@ -2,55 +2,50 @@ import { useState, useEffect } from "react";
 import Logo from "../assets/logo.png";
 
 function Header() {
-  const [opacity, setOpacity] = useState(100);
   const [isOpen, setIsOpen] = useState(false);
+  const [shadow, setShadow] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setOpacity(window.scrollY > 50 ? 90 : 100);
+    const onScroll = () => setShadow(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const linkBase =
+  const linkStyle =
     "transition-colors hover:text-[#FFD700] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] rounded";
 
   return (
     <header
-      className="fixed top-0 left-0 w-full backdrop-blur shadow-md z-50 transition-opacity duration-500"
-      style={{
-        opacity: opacity / 100,
-        backgroundColor: "rgba(230, 0, 38, 0.9)", // vermelho japonês com transparência
-      }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        shadow ? "bg-[#1C1C1C]/95 shadow-md" : "bg-transparent"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-[64px] py-0 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 h-[64px] flex justify-between items-center">
+        {/* Logo */}
         <a
           href="#hero"
-          className="relative flex items-center h-full shrink-0"
-          aria-label="Ir para o início"
+          className="flex items-center gap-2 text-white font-extrabold text-xl"
         >
           <img
             src={Logo}
-            alt="GourmetOn Japonês"
-            className="h-full w-auto object-contain origin-left scale-[1.8] select-none"
-            draggable="false"
+            alt="GourmetOn"
+            className="h-10 w-auto object-contain select-none"
           />
-          <span className="ml-3 text-white font-bold text-lg tracking-wide">
-            Delivery Japonês
+          <span className="tracking-wide">
+            Gourmet<span className="text-[#FFD700]">On</span>
           </span>
         </a>
 
-        {/* Menu Desktop */}
+        {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6 text-white font-medium">
-          <a href="#hero" className={linkBase}>Início</a>
-          <a href="#cardapio" className={linkBase}>Cardápio</a>
-          <a href="#delivery" className={linkBase}>Delivery Japonês</a>
-          <a href="#sobre" className={linkBase}>Sobre Nós</a>
-          <a href="#contato" className={linkBase}>Contato</a>
+          <a href="#hero" className={linkStyle}>Início</a>
+          <a href="#destaques" className={linkStyle}>Pratos</a>
+          <a href="#contato" className={linkStyle}>Contato</a>
         </nav>
 
-        {/* Botão Mobile */}
+        {/* Mobile Menu Button */}
         <button
-          onClick={() => setIsOpen((v) => !v)}
+          onClick={() => setIsOpen(v => !v)}
           className="md:hidden text-white p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]"
           aria-label="Abrir menu"
           aria-expanded={isOpen}
@@ -62,54 +57,23 @@ function Header() {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            {isOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
           </svg>
         </button>
       </div>
 
-      {/* Menu Mobile */}
+      {/* Mobile Menu */}
       <div
-        className={`${
-          isOpen ? "block" : "hidden"
-        } md:hidden bg-[#E60026]/95 backdrop-blur border-t border-[#FFD700]`}
+        className={`${isOpen ? "block" : "hidden"} md:hidden bg-[#1C1C1C]/95 backdrop-blur border-t border-[#FFD700]/30`}
       >
-        <nav className="flex flex-col px-6 py-4 space-y-2 text-white font-medium">
-          <a href="#hero" onClick={() => setIsOpen(false)} className={linkBase}>
-            Início
-          </a>
-          <a
-            href="#cardapio"
-            onClick={() => setIsOpen(false)}
-            className={linkBase}
-          >
-            Cardápio
-          </a>
-          <a
-            href="#delivery"
-            onClick={() => setIsOpen(false)}
-            className={linkBase}
-          >
-            Delivery Japonês
-          </a>
-          <a
-            href="#sobre"
-            onClick={() => setIsOpen(false)}
-            className={linkBase}
-          >
-            Sobre Nós
-          </a>
-          <a
-            href="#contato"
-            onClick={() => setIsOpen(false)}
-            className={linkBase}
-          >
-            Contato
-          </a>
+        <nav className="flex flex-col px-6 py-4 space-y-3 text-white font-medium">
+          <a href="#hero" onClick={() => setIsOpen(false)} className={linkStyle}>Início</a>
+          <a href="#destaques" onClick={() => setIsOpen(false)} className={linkStyle}>Pratos</a>
+          <a href="#contato" onClick={() => setIsOpen(false)} className={linkStyle}>Contato</a>
         </nav>
       </div>
     </header>
