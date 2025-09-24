@@ -12,7 +12,7 @@ function Header() {
   }, []);
 
   const linkStyle =
-    "transition-colors hover:text-[#FFD700] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700] rounded";
+    "transition-colors hover:text-[#C9A635] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A635] rounded";
 
   return (
     <header
@@ -32,7 +32,7 @@ function Header() {
             className="h-10 w-auto object-contain select-none"
           />
           <span className="tracking-wide">
-            Gourmet<span className="text-[#FFD700]">On</span>
+            Gourmet<span className="text-[#B22222]">On</span>
           </span>
         </a>
 
@@ -43,10 +43,18 @@ function Header() {
           <a href="#contato" className={linkStyle}>Contato</a>
         </nav>
 
+        {/* Botão de ação */}
+        <a
+          href="#destaques"
+          className="hidden md:inline-block ml-4 rounded-full bg-[#B22222] px-5 py-2 text-sm font-semibold hover:bg-[#C9A635] hover:text-[#1C1C1C] transition"
+        >
+          Peça já
+        </a>
+
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(v => !v)}
-          className="md:hidden text-white p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]"
+          className="md:hidden text-white p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A635]"
           aria-label="Abrir menu"
           aria-expanded={isOpen}
         >
@@ -68,7 +76,7 @@ function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`${isOpen ? "block" : "hidden"} md:hidden bg-[#1C1C1C]/95 backdrop-blur border-t border-[#FFD700]/30`}
+        className={`${isOpen ? "block" : "hidden"} md:hidden bg-[#1C1C1C]/95 backdrop-blur border-t border-[#C9A635]/30`}
       >
         <nav className="flex flex-col px-6 py-4 space-y-3 text-white font-medium">
           <a href="#hero" onClick={() => setIsOpen(false)} className={linkStyle}>Início</a>

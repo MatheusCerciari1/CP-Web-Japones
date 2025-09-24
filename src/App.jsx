@@ -98,6 +98,48 @@ export default function App() {
         )}
       </section>
 
+      {/* Depoimentos */}
+      <section id="depoimentos" className="mx-4 sm:mx-10 my-14 scroll-mt-[64px]">
+        <h2 className="text-center text-3xl font-bold text-[#1C1C1C] mb-10">
+          Clientes satisfeitos
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1 */}
+          <div className="bg-white shadow-lg rounded-xl p-6 border border-[#FFD700]/30">
+            <p className="text-[#525252] italic">
+              "A comida chegou rapidinho e estava incrível!  
+              Parece que estou no Japão."
+            </p>
+            <div className="mt-4 flex items-center gap-3">
+              <span className="text-2xl">⭐️⭐️⭐️⭐️⭐️</span>
+              <span className="font-semibold text-[#1C1C1C]">— Mariana S.</span>
+            </div>
+          </div>
+          {/* Card 2 */}
+          <div className="bg-white shadow-lg rounded-xl p-6 border border-[#FFD700]/30">
+            <p className="text-[#525252] italic">
+              "Melhor delivery japonês que já pedi.  
+              O sabor é autêntico e muito fresco."
+            </p>
+            <div className="mt-4 flex items-center gap-3">
+              <span className="text-2xl">⭐️⭐️⭐️⭐️⭐️</span>
+              <span className="font-semibold text-[#1C1C1C]">— Rafael K.</span>
+            </div>
+          </div>
+          {/* Card 3 */}
+          <div className="bg-white shadow-lg rounded-xl p-6 border border-[#FFD700]/30">
+            <p className="text-[#525252] italic">
+              "Virou meu restaurante favorito.  
+              Recomendo para todo mundo que gosta de comida japonesa!"
+            </p>
+            <div className="mt-4 flex items-center gap-3">
+              <span className="text-2xl">⭐️⭐️⭐️⭐️⭐️</span>
+              <span className="font-semibold text-[#1C1C1C]">— Aline T.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter */}
       <section id="contato" className="mx-4 sm:mx-10 my-14 scroll-mt-[64px]">
         <div className="mx-auto max-w-4xl rounded-2xl shadow-xl border border-[#FFD700]/40 overflow-hidden">

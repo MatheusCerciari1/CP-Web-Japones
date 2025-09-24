@@ -2,18 +2,18 @@ import SocialImage from "../assets/midias.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1C1C1C] text-white py-8 mt-auto border-t-4 border-[#E60026]">
+    <footer className="bg-[#1C1C1C] text-white py-8 mt-auto border-t-4 border-[#B22222]">
       <div className="container mx-auto px-4 flex flex-col items-center gap-4">
         
         {/* Marca */}
         <h1 className="text-xl font-extrabold tracking-wide">
-          🍣 Gourmet<span className="text-[#FFD700]">On</span>
+          🍣 Gourmet<span className="text-[#B22222]">On</span>
         </h1>
 
         {/* Contato */}
         <p className="text-center text-white/80 text-sm max-w-sm leading-snug">
           Tradição japonesa na sua casa.  
-          Contato: <span className="text-[#FFD700]">gourmeton@gmail.com</span>
+          Contato: <span className="text-[#C9A635]">gourmeton@gmail.com</span>
         </p>
 
         {/* Redes sociais */}
